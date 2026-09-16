@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/browser_background">
+
+    <HorizontalScrollView
+        android:id="@+id/tabStripScroll"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:scrollbars="none"
+        android:background="@color/tab_bar_background">
+
+        <LinearLayout
+            android:id="@+id/tabStrip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp" />
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/toolbar_background"
+        android:padding="6dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            style="@style/BrowserIconButton"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_back" />
+
+        <ImageButton
+            android:id="@+id/btnForward"
+            style="@style/BrowserIconButton"
+            android:contentDescription="Forward"
+            android:src="@drawable/ic_forward" />
+
+        <ImageButton
+            android:id="@+id/btnReload"
+            style="@style/BrowserIconButton"
+            android:contentDescription="Reload"
+            android:src="@drawable/ic_reload" />
+
+        <EditText
+            android:id="@+id/urlBar"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/url_bar_background"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:hint="Search or enter website address"
+            android:textColorHint="@color/text_secondary"
+            android:textColor="@color/text_primary"
+            android:singleLine="true"
+            android:imeOptions="actionGo"
+            android:inputType="textUri"
+            android:selectAllOnFocus="true" />
+
+        <ImageButton
+            android:id="@+id/btnBookmark"
+            style="@style/BrowserIconButton"
+            android:contentDescription="Bookmark"
+            android:src="@drawable/ic_star_outline" />
+
+        <ImageButton
+            android:id="@+id/btnMenu"
+            style="@style/BrowserIconButton"
+            android:contentDescription="More options"
+            android:src="@drawable/ic_menu" />
+
+        <ImageButton
+            android:id="@+id/btnNewTab"
+            style="@style/BrowserIconButton"
+            android:contentDescription="New tab"
+            android:src="@drawable/ic_add" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:max="100"
+        android:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:id="@+id/webviewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>
